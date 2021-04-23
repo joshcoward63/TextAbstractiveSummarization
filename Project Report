@@ -93,7 +93,10 @@
 \renewcommand{\maketitlehookd}{%
 \begin{abstract}
 \noindent 
-In this paper, we talk about Text Abstractive Summarization using Bert, with the goal in mind of creating a model that produces results that are comparable to Google's massive Pegasus model they developed and released back in June of 2020. We used the English language for our project as it's a language we are all able to speak and understand. We also used the datasets to train our model consist of only English entries. We have used the CNN/Daily Main, SAMSum Corpus, and BillSum Corpus. 
+This paper discusses Text Abstractive Summarization using Bert to create a model that produces results comparable to Google's massive 
+Pegasus model they developed and released back in June of 2020. We used the English language for our project as it's a language we can 
+speak and understand. We also used the datasets to train our model consist of only English entries. We have used the CNN/Daily Main,  
+SAMSum Corpus, and BillSum Corpus as our datasets. 
 \end{abstract}
 }
 
@@ -118,10 +121,7 @@ Motivation
 %------------------------------------------------
 
 \subsection{Works Cited}
-One of the biggest aspects that muddies the colloquial conception on which server is better comes from the companies that 
-use each. In computer science circles, knowledge that Google, Amazon, Facebook, and even Microsoft use Linux servers can 
-be quite persuasive, especially when Microsoft itself develops the competitor to Linux server. If Microsoft has been shifting 
-their own Azure servers to Linux over the years, then why should anyone choose Windows server?
+
 
 
 %------------------------------------------------
