@@ -1,0 +1,197 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Bert Text Abstractive Summarization
+% LaTeX Template
+% Version 1.4 (15/5/16)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com) with extensive modifications by
+% Vel (vel@LaTeXTemplates.com) and Shane (shanepanter@boisestate.edu)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[twoside,twocolumn]{article}
+
+\usepackage{blindtext} % Package to generate dummy text throughout this template 
+
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[english]{babel} % Language hyphenation and typographical rules
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+
+\usepackage{enumitem} % Customized lists
+\setlist[itemize]{noitemsep} % Make itemize lists more compact
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+\renewcommand\thesubsection{\roman{subsection}} % roman numerals for subsections
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{Bert-Text Abstractive Summarization $\bullet$ April 2021} % Custom header text
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+\usepackage{titling} % Customizing the title section
+
+\usepackage{hyperref} % For hyperlinks in the PDF
+
+\usepackage{biblatex}
+
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\usepackage{tablefootnote} % Add a table footnote
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\setlength{\droptitle}{-4\baselineskip} % Move the title up
+
+\pretitle{\begin{center}\Huge\bfseries} % Article title formatting
+\posttitle{\end{center}} % Article title closing formatting
+\title{Bert-Text Abstractive Summarization} % Article title
+\author{%
+\textsc{Josh Coward}\\[1ex] % Your name
+\normalsize Boise State University \\ % Your institution
+\normalsize \href{mailto:joshcoward@u.boisestate.edu}{joshcoward@u.boisestate.edu} % Your email address
+\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
+\textsc{Ryan Pacheco}\\[1ex] % Second author's name
+\normalsize Boise State University \\ % Second author's institution
+\normalsize \href{mailto:ryanpacheco413@u.boisestate.edu}{ryanpacheco413@u.boisestate.edu} % Second author's email address
+\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
+\textsc{Sajia Zafreen}\\[1ex] % Third author's name
+\normalsize Boise State University \\ % Third author's institution
+\normalsize \href{mailto:sajiazafreen@u.boisestate.edu}{sajiazafreen@u.boisestate.edu} % Third author's email address
+}
+\date{\today} % Leave empty to omit a date
+\renewcommand{\maketitlehookd}{%
+\begin{abstract}
+\noindent 
+In this paper, we talk about Text Abstractive Summarization using Bert, with the goal in mind of creating a model that produces results that are comparable to Google's massive Pegasus model they developed and released back in June of 2020. We used the English language for our project as it's a language we are all able to speak and understand. We also used the datasets to train our model consist of only English entries. We have used the CNN/Daily Main, SAMSum Corpus, and BillSum Corpus. 
+\end{abstract}
+}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+% Print the title
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+\lettrine[nindent=0em,lines=3]
+Motivation
+
+%------------------------------------------------
+\section{Background}
+
+%------------------------------------------------
+
+\subsection{Works Cited}
+One of the biggest aspects that muddies the colloquial conception on which server is better comes from the companies that 
+use each. In computer science circles, knowledge that Google, Amazon, Facebook, and even Microsoft use Linux servers can 
+be quite persuasive, especially when Microsoft itself develops the competitor to Linux server. If Microsoft has been shifting 
+their own Azure servers to Linux over the years, then why should anyone choose Windows server?
+
+
+%------------------------------------------------
+
+\subsection{Datasets}
+
+
+
+%------------------------------------------------
+
+\section{Model and Approach}
+%------------------------------------------------
+
+\section{Evaluation}
+%------------------------------------------------
+
+\section{Implications}
+%------------------------------------------------
+
+\section{Results}
+
+
+%------------------------------------------------
+
+\section{Conclusion}
+
+%------------------------------------------------
+
+\subsection{Comparisons}
+
+
+%------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	REFERENCE LIST
+%----------------------------------------------------------------------------------------
+
+\begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
+
+  \bibitem[PreTraining]{}
+  \newblock Pretraining-Based Natural Language Generation for Text Summarization
+  \url{Zhang, H., Xu, J., & Wang, J. (2019). Pretraining-based natural language generation for text summarization. arXiv preprint arXiv:1902.09243.}
+
+
+ 
+
+  
+\end{thebibliography}
+
+  
+%----------------------------------------------------------------------------------------
+
+% FOR REFERENCE
+
+%\subsection{Subsection One}
+
+%A ement requiring citation \cite{VMware:2021}.
+
+%\subsection{Subsection Two}
+
+%\begin{equation}
+%\label{eq:emc}
+%e = mc^2
+%\end{equation}
+
+%\begin{itemize}
+%\item Donec dolor arcu, rutrum id molestie in, viverra sed diam
+%\end{itemize}
+
+
+
+\end{document}
