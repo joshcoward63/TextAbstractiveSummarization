@@ -93,10 +93,13 @@
 \renewcommand{\maketitlehookd}{%
 \begin{abstract}
 \noindent 
-This paper discusses Text Abstractive Summarization using Bert to create a model that produces results comparable to Google's massive 
-Pegasus model they developed and released back in June of 2020. We used the English language for our project as it's a language we can 
-speak and understand. We also used the datasets to train our model consist of only English entries. We have used the CNN/Daily Main,  
-SAMSum Corpus, and BillSum Corpus as our datasets. 
+Text summarization is a process/technique to shorten an extended text such as books, news articles, blog posts, research papers, emails, 
+and tweets in a coherent, fluent summary. It is one of the Natural Language Processing applications, which significantly impacts our lives 
+with a spiking demand every day. With growing digital media and publishing, text summarization helps with deciding on whether an 
+article/ document/ book is valuable or not. With the availability of textual data, it has become easier to train a model for text summarization. 
+This paper discusses Text Abstractive Summarization using Bert to create a model that produces results comparable to Google's massive Pegasus model 
+they developed and released back in June of 2020. We used the English language for our project as it's a language we can speak and understand. 
+We also used the datasets to train our model consist of only English entries. We have used the CNN/Daily Main, SAMSum Corpus, and BillSum Corpus as our datasets. 
 \end{abstract}
 }
 
