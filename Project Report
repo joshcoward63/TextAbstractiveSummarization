@@ -18,10 +18,11 @@
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
-
 \documentclass[twoside,twocolumn]{article}
+\usepackage{biblatex}
+\addbibresource{mybib.bib} % with extension
 
-\usepackage{blindtext} % Package to generate dummy text throughout this template 
+%\usepackage{blindtext} % Package to generate dummy text throughout this template 
 
 \usepackage[sc]{mathpazo} % Use the Palatino font
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
@@ -67,6 +68,8 @@
 
 \usepackage{tablefootnote} % Add a table footnote
 
+%Includes "References" in the table of contents
+\usepackage[nottoc]{tocbibind}
 %----------------------------------------------------------------------------------------
 %	TITLE SECTION
 %----------------------------------------------------------------------------------------
@@ -93,13 +96,14 @@
 \renewcommand{\maketitlehookd}{%
 \begin{abstract}
 \noindent 
-Text summarization is a process/technique to shorten an extended text such as books, news articles, blog posts, research papers, emails, 
-and tweets in a coherent, fluent summary. It is one of the Natural Language Processing applications, which significantly impacts our lives 
-with a spiking demand every day. With growing digital media and publishing, text summarization helps with deciding on whether an 
-article/ document/ book is valuable or not. With the availability of textual data, it has become easier to train a model for text summarization. 
-This paper discusses Text Abstractive Summarization using Bert to create a model that produces results comparable to Google's massive Pegasus model 
-they developed and released back in June of 2020. We used the English language for our project as it's a language we can speak and understand. 
-We also used the datasets to train our model consist of only English entries. We have used the CNN/Daily Main, SAMSum Corpus, and BillSum Corpus as our datasets. 
+Text summarization is a process/technique to shorten an extended text such as books, news articles, blog posts, research papers, 
+emails, and tweets in a coherent, fluent summary. It is one of the Natural Language Processing applications, which significantly 
+impacts our lives with a spiking demand every day. With growing digital media and publishing, text summarization helps with deciding 
+on whether an article/ document/ book is valuable or not. With the availability of textual data, it has become easier to train a 
+model for text summarization. This paper discusses Text Abstractive Summarization using Bert to create a model that produces results 
+comparable to Google's massive Pegasus model they developed and released back in June of 2020. We used the English language for our 
+project as it's a language we can speak and understand. We also used the datasets to train our model consist of only English entries. 
+We have used the CNN/Daily Main, SAMSum Corpus, and BillSum Corpus as our datasets.   
 \end{abstract}
 }
 
@@ -110,26 +114,85 @@ We also used the datasets to train our model consist of only English entries. We
 % Print the title
 \maketitle
 
+
 %----------------------------------------------------------------------------------------
 %	ARTICLE CONTENTS
 %----------------------------------------------------------------------------------------
 
 \section{Introduction}
 \lettrine[nindent=0em,lines=3]
-Motivation
+
+Text Summarization summaries extended text while keeping coherent context. The increasing amount of unstructured data needs to be 
+extracted in relevant summaries. There are different types of text summarization: Extractive and Abstractive. Extractive summarization 
+generates a summary by selecting salient sentences or phrases from the source text, while abstractive methods paraphrase and restructure 
+sentences to compose the summary. We focus on abstractive summarization in our work. There are many abstractive approaches based on a 
+sequence-to-sequence model with a copy mechanism. However, some there are issues with these abstractive methods are: 1) because these 
+methods use a left-context decoder while predicting each word, these methods do not have complete context. 2) as they do not use pre-trained 
+contextualized language models on the decoder, the decoded does learn summary representation, context interactions, and language modeling together. 
+BERT, which stands for Bidirectional Encoder Representations from Transformation, is designed to pre-train deep bidirectional representations 
+from the unlabeled text by jointly conditioning both left and right context in all layers. As a result, the pre-trained BERT model can be 
+fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering 
+and language inference, without substantial task-specific architecture modifications.\par
+BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art results on eleven natural language processing tasks, 
+including pushing the GLUE score to 80.5\% (7.7\% point absolute improvement), MultiNLI accuracy to 86.7\% (4.6\% absolute improvement), 
+SQuAD v1.1 question answering Test F1 to 93.2 (1.5 points absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 points absolute 
+improvement).\footnote{See "Computation and Language", arXiv:1810.04805 }. \par
+Bert has been very successful in textual entailment, name entity recognition, and machine reading comprehension. We have used the 
+Bert-base-uncased pre-trained model for both the encoder and decoder, with the goal in mind of creating a model that resembles to Google's massive Pegasus model.
 
 %------------------------------------------------
+
 \section{Background}
+
+
 
 %------------------------------------------------
 
 \subsection{Works Cited}
-
+We have used \cite{aksenov2020abstractive}, \cite{zhang2019pretraining} as reference. In the \cite{aksenov2020abstractive} paper, 
+the text summarization model is based on the Transformer architecture. The architecture adopts the original model of Vaswami et al. (2017). 
+On top of the decoder, they used a Pointer-Generator to increase the extractive capabilities of the network. In Paper \cite{zhang2019pretraining}, 
+proposed 1. A natural language generation model based on BERT, making good use of the pre-trained language model in the encoder and decoder process, 
+and the model can be trained end-to-end without handcrafted features. 2. A design a two-stage decoder process. In this architecture, our model can 
+enerate each word of the summary considering both sides’ context information. 3. To conduct experiments on the benchmark datasets CNN/Daily Mail and 
+New York Times. Our model achieves a 33.33 average of ROUGE-1, ROUGE-2 and ROUGE-L on the CNN/Daily Mail, which is state-of-the-art. On the New York 
+Times dataset, our model achieves about 5.6\% relative improvement over ROUGE-1. 
+Our work doesn't differ much from the papers we referenced here \cite{aksenov2020abstractive}, \cite{zhang2019pretraining}. As BERT can't process 
+sequences with more than 512 tokens, to deal with that our model is using overlapping subsection text of length 512 words and generating summaries 
+for each of the individual subsections. In the end, a final summary across all those summaries. In the case of summaries, we didn't use a pre-trained 
+summary model until the end.
 
 
 %------------------------------------------------
 
 \subsection{Datasets}
+
+Our project used three datasets: \textbf{1) CNN/Dailymail, 2) SAMSum corpus, and 3) Billum corpus}. There are different datasets for text summarization. 
+We tried to find datasets with "gold" summaries to compare our generated summaries with the "gold" summaries for our approach.\par 
+
+The \textbf{CNN/Dailymail} is an English-language dataset containing just over 300k unique news articles written by journalists at CNN and the Daily Mail. 
+We have used version 3.0.0, which can be used to train both abstractive and extractive summarization.\par
+The data consists of news articles and highlight sentences. In the question answering setting of the data, the articles are used as the context and entities 
+are hidden one at a time in the highlight sentences, producing Cloze style questions where the goal of the model is to correctly guess which entity in the 
+context has been hidden in the highlight. In the summarization setting, the highlight sentences are concatenated to form a summary of the article. The CNN 
+articles were written between April 2007 and April 2015. The Daily Mail articles were written between June 2010 and April 2015.
+The model performance is measured by how high the output summary's ROUGE score for a given article is compared to the highlight written by the original 
+article author. Zhong et al. (2020) report a ROUGE-1 score of 44.41 when testing a model trained for extractive summarization. See the Papers With Code 
+leaderboard for more models.\footnote{See "Get To The Point: Summarization with Pointer-Generator Networks", https://www.aclweb.org/anthology/P17-1099}. 
+There is a string for the article for each instance, a string for the highlights, and a string for the id.  The train set has 287,113, the validation set 
+has 13,368, and the Test set has 11,490 instances in Split.
+
+The \textbf{SAMSum} dataset contains about 16k messenger-like conversations with summaries. Conversations were created and written down by linguists fluent 
+in English. The dataset reflects the proportion of topics of real-life messenger conversations.  It has 16369 conversations distributed uniformly into 4 groups. 
+Each instance contains an id string, a summary string, and a dialogue string.  The train set has 14,732, the validation set has 818, and the test set has 819 
+instances in Split.  The summaries are annotated and assume they should 1) be short, 2) extract important pieces of information, 3)include names of interlocutors, 
+and 4)be written in the third person. Each dialogue has only one reference of summary.\footnote{See "{SAMS}um Corpus: A Human-annotated Dialogue Dataset for 
+Abstractive Summarization", https://www.aclweb.org/anthology/D19-5409} \par
+
+The \textbf{BillSum} dataset summarizes the state bills of US Congressional and California states. It has several features: 1)text: bill text, 2) summary: 
+summary of the bills, 3)title: title of the bills, 4)text\_len: number of chars in text, 5)sum\_len: number of chars in summary. The data field has a text 
+string, a \cite{aksenov2020abstractive} summary string, and a title string. The train set has 18,949,  the ca\_test set has 1237, and the test set has 3269 
+instances in Split.\footnote{See "BillSum: A Corpus for Automatic Summarization of US Legislation", 1910.00523}
 
 
 
@@ -155,7 +218,6 @@ Motivation
 
 \subsection{Comparisons}
 
-
 %------------------------------------------------
 
 
@@ -163,37 +225,17 @@ Motivation
 %	REFERENCE LIST
 %----------------------------------------------------------------------------------------
 
-\begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
+%\section{References}    
 
-  \bibitem[PreTraining]{}
-  \newblock Pretraining-Based Natural Language Generation for Text Summarization
-  \url{Zhang, H., Xu, J., & Wang, J. (2019). Pretraining-based natural language generation for text summarization. arXiv preprint arXiv:1902.09243.}
+%\cite{aksenov2020abstractive}
 
-
- 
-
-  
-\end{thebibliography}
+\printbibliography
 
   
 %----------------------------------------------------------------------------------------
 
 % FOR REFERENCE
 
-%\subsection{Subsection One}
-
-%A ement requiring citation \cite{VMware:2021}.
-
-%\subsection{Subsection Two}
-
-%\begin{equation}
-%\label{eq:emc}
-%e = mc^2
-%\end{equation}
-
-%\begin{itemize}
-%\item Donec dolor arcu, rutrum id molestie in, viverra sed diam
-%\end{itemize}
 
 
 
