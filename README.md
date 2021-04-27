@@ -2,7 +2,7 @@
 
 ## Josh Coward, Ryan Pacheco, Sajia Zafreen
 
-##Run
+## Run
 1) Run `pip install -r requriments.txt`
 2) Open text_summerization.ipynb using jupyter notebook
 3) Run the first cell to import libaries
