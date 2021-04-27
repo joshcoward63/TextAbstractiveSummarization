@@ -5,6 +5,5 @@
 *.ipynb_checkbooks/*
 *.ipynb_checkbooks
 *.zip
-*.txt
 *.magnitude
 *.jpg
