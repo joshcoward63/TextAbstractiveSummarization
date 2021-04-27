@@ -2,7 +2,8 @@
 
 ## Josh Coward, Ryan Pacheco, Sajia Zafreen
 
-### March 01, 2021 - April 30, 2021
-
-All Jupyter notebooks with, none of the datasets are in this repo
-
+##Run
+1) Run `pip install -r requriments.txt`
+2) Follow instructions in notebook
+**NOTE** Fine tuning takes a long time on CPU
+3) To only look at pre-trained model comparisons go to `Pre trained comp` heading
