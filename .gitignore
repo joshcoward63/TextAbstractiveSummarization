@@ -4,6 +4,5 @@
 *.xlsx
 *.ipynb_checkbooks/*
 *.ipynb_checkbooks
-*.zip
 *.magnitude
 *.jpg
