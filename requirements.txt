@@ -12,3 +12,5 @@ pathlib
 regex
 matplotlib
 py7zr
+rouge_score
+sacrebleu
